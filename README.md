@@ -20,13 +20,13 @@ A browser Tic-Tac-Two game built with HTML, CSS, and JavaScript using object-ori
 ## How to Run
 
 1. Clone the repo:
-
+```bash
    git clone https://github.com/tomaspsotkka/TicTacTwo-OOP
-
+```
 2. Open the project folder.
 
 3. Open `index.html` in your browser (or use Live Server in VS Code).
-
+   
 ## Project Structure
 
 - index.html  
