@@ -7,9 +7,14 @@ class Game {
         this.updateStatus();
         this.restartButton = document.getElementById('restartBtn');
         this.restartButton.addEventListener('click', () => this.restart());
+        this.gameOver = false;
     }
 
     handleCellClick(index) {
+        if (this.gameOver) {
+            return;
+          }
+
         console.log(`Cell ${index} clicked`); //just for checking if cells clicks work 
 
         if (this.board.cells[index]) {
@@ -25,11 +30,13 @@ class Game {
         const winner = this.checkWinner();
         if (winner) {
             this.statusElement.textContent = `Player ${winner} wins!`;
+            this.gameOver = true;
             return;
         }
 
         if (!this.board.cells.includes(null)) {
             this.statusElement.textContent = `It's a draw!`;
+            this.gameOver = true;
             return;
         }
 
@@ -67,6 +74,7 @@ class Game {
         this.board.showBoard(); //reload UI
         this.currentPlayer = 'X'; //reset player back to player X
         this.updateStatus(); //reset message
+        this.gameOver = false;
     }
 }
 
